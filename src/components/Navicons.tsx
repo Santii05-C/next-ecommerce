@@ -1,5 +1,7 @@
-const SearchBar = () => {
-  return <div className="">SearchBar</div>;
+"use client";
+
+const NavIcons = () => {
+  return <div className="">NavIcons</div>;
 };
 
-export default SearchBar;
+export default NavIcons;
