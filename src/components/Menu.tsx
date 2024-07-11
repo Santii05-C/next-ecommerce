@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Menu = () => {
   const [open, setOpen] = useState(false);
+  const [hola, sethola] = useState(false);
 
   return (
     <div className="">
