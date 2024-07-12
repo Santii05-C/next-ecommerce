@@ -56,7 +56,9 @@ const NavIcons = () => {
           className="cursor-pointer"
           onClick={() => setIsCartOpen((prev) => !prev)}
         />
-        <div className="absolute -top-4 -right-4 w-6 h-6 bg-[#F35C7A]">2</div>
+        <div className="absolute -top-4 -right-4 w-6 h-6 bg-lama rounded-full text-white flex text-sm items-center justify-center">
+          2
+        </div>
       </div>
       {isCartOpen && <CarModal />}
     </div>
