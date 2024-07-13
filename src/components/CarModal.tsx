@@ -11,6 +11,7 @@ const CarModal = () => {
         <div className="">Card is Empty</div>
       ) : (
         <>
+          <h2 className="text-xl">Shopping Cart</h2>
           {/* LIST */}
           <div className="flex flex-col gap-8">
             {/* ITEM */}
