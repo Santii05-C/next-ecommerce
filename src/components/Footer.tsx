@@ -7,7 +7,7 @@ const Footer = () => {
       {/* TOP */}
       <div className="flex justify-between gap-24">
         {/* LEFT */}
-        <div className="w-1/4 flex flex-col gap-8">
+        <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
           <Link href="/">
             <div className="text-2xl tracking-wide">LAMA</div>
           </Link>
@@ -26,7 +26,7 @@ const Footer = () => {
           </div>
         </div>
         {/* CENTER */}
-        <div className="w-1/2"></div>
+        <div className="hidden lg:flex justify-between w-1/2"></div>
         {/* RIGHT */}
         <div className="w-1/4"></div>
       </div>
