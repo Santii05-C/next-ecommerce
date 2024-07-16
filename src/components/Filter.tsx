@@ -1,7 +1,7 @@
 const Filter = () => {
   return (
     <div className="mt-12 flex justify-between">
-      <div className="flex gap-6">
+      <div className="flex gap-6 flex-wrap">
         <select
           name="type"
           id=""
@@ -62,7 +62,7 @@ const Filter = () => {
           id=""
           className="py-2 px-4 rounded-2xl text-xs font-medium bg-white ring-1 ring-gray-400"
         >
-          <option value="">Sort By</option>
+          <option>Sort By</option>
           <option value="">Price (low to high)</option>
           <option value="">Price (high to low</option>
           <option value="">Newest</option>
