@@ -58,7 +58,6 @@ const Footer = () => {
             </div>
           </div>
         </div>
-
         {/* RIGHT */}
         <div className="w-full md:w-1/2 lg:w-1/4 flex flex-col gap-8">
           <h1 className="font-medium text-lg">SUBSCRIBE</h1>
@@ -85,7 +84,19 @@ const Footer = () => {
         </div>
       </div>
       {/* BUTTOM */}
-      <div className=""></div>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-16">
+        <div className="">© 2024 Lama Shop</div>
+        <div className="flex flex-col gap-8 md:flex-row">
+          <div className="">
+            <span className="text-gray-500 mr-4">Language</span>
+            <span className="font-medium">United State | English</span>
+          </div>
+          <div className="">
+            <span className="text-gray-500 mr-4">Currency</span>
+            <span className="font-medium">$ USD </span>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
