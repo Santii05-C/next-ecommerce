@@ -4,9 +4,9 @@ import ProductImages from "@/components/ProductImages";
 
 const SinglePage = () => {
   return (
-    <div className="px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
+    <div className="px-4 md:px-8 lg:px-16 xl:32 2xl:px-64 relative flex flex-col lg:flex-row gap-16 ">
       {/* IMG */}
-      <div className="w-full lg:w-1/2 lg:sticky top-20 h-max ">
+      <div className="w-full lg:w-1/2 lg:sticky top-20 h-max">
         <ProductImages />
       </div>
       {/* TEXT */}
@@ -25,6 +25,34 @@ const SinglePage = () => {
         <div className="h-[2px] bg-gray-100" />
         <CustomizeProducts />
         <Add />
+        <div className="h-[2px] bg-gray-100" />
+        <div className="text-sm">
+          <h4 className="font-medium mb-4">Title</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure,
+            culpa assumenda inventore veniam excepturi recusandae corporis
+            exercitationem eius, fugit ipsa unde, velit expedita nihil porro
+            quod magnam quibusdam. Ipsa, repellat.
+          </p>
+        </div>
+        <div className="text-sm">
+          <h4 className="font-medium mb-4">Title</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure,
+            culpa assumenda inventore veniam excepturi recusandae corporis
+            exercitationem eius, fugit ipsa unde, velit expedita nihil porro
+            quod magnam quibusdam. Ipsa, repellat.
+          </p>
+        </div>
+        <div className="text-sm">
+          <h4 className="font-medium mb-4">Title</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure,
+            culpa assumenda inventore veniam excepturi recusandae corporis
+            exercitationem eius, fugit ipsa unde, velit expedita nihil porro
+            quod magnam quibusdam. Ipsa, repellat.
+          </p>
+        </div>
       </div>
     </div>
   );
