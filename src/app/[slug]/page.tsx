@@ -53,6 +53,15 @@ const SinglePage = () => {
             quod magnam quibusdam. Ipsa, repellat.
           </p>
         </div>
+        <div className="text-sm">
+          <h4 className="font-medium mb-4">Title</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure,
+            culpa assumenda inventore veniam excepturi recusandae corporis
+            exercitationem eius, fugit ipsa unde, velit expedita nihil porro
+            quod magnam quibusdam. Ipsa, repellat.
+          </p>
+        </div>
       </div>
     </div>
   );
