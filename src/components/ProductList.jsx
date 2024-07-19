@@ -1,7 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductList = ({ categoryId, limit }) => {
+//2:30
+const ProductList = ({
+  categoryId,
+  limit,
+}: {
+  categoryId: string,
+  limit: number,
+}) => {
+  // const wixClient = await wixClientServer();
+
+  // const res = await wixClient.products.queryProducts().find();
+
   return (
     <div className="mt-12 flex gap-x-8 gap-y-16 justify-between flex-wrap">
       <Link
