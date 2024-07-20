@@ -49,14 +49,19 @@ const ProductList = async ({
           </div>
           <div className="flex justify-between">
             <span className="font-medium">{product.name}</span>
-            <span className="font-semibold">$</span>
+            <span className="font-semibold">${product.price?.price}</span>
           </div>
           {product.additionalInfoSections && (
-            <div className="text-sm text-gray-500">
-              {product.additionalInfoSections.find(
-                (section: any) => section.title === "shortDesc"
-              )?.description || ""}
-            </div>
+            <div
+              className="text-sm text-gray-500"
+              dangerouslySetInnerHTML={{
+                __html: DOMPurify.sanitize(
+                  product.additionalInfoSections.find(
+                    (section: any) => section.title === "shortDesc"
+                  )?.description || ""
+                ),
+              }}
+            ></div>
           )}
 
           <button className="rounded-2xl ring-1 ring-lama text-lama w-max py-2 px-4 text-xs hover:bg-lama hover:text-white">
