@@ -2,6 +2,7 @@ import { wixClientServer } from "@/lib/wixClientServer";
 import { products } from "@wix/stores";
 import Image from "next/image";
 import Link from "next/link";
+import DOMPurify from "isomorphic-dompurify";
 
 const PRODUCT_PER_PAGE = 20;
 
