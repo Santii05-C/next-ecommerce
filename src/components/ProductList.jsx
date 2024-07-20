@@ -6,10 +6,10 @@ import Link from "next/link";
 const PRODUCT_PER_PAGE = 20;
 
 const ProductList = ({
-  categotyId,
+  categoryId,
   limit,
 }: {
-  categotyId: string,
+  categoryId: string,
   limit: number,
 }) => {
   return (
