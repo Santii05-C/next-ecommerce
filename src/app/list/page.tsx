@@ -37,6 +37,7 @@ const ListPage = async ({ searchParams }: { searchParams: any }) => {
           categoryId={
             cat.collection?._id || "00000000-000000-000000-000000000001"
           }
+          searchParams={searchParams}
         />
       </Suspense>
     </div>
