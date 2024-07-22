@@ -1,4 +1,16 @@
-const CustomizeProducts = () => {
+"use client";
+
+import { products } from "@wix/stores";
+
+const CustomizeProducts = ({
+  productId,
+  variants,
+  productOptions,
+}: {
+  productId: string;
+  variants: products.Variant[];
+  productOptions: products.ProductOption[];
+}) => {
   return (
     <div className="flex flex-col gap-6">
       <h4 className="font-medium">Choose a color</h4>
