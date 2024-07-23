@@ -24,22 +24,6 @@ const Filter = () => {
           className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
         />
         <select
-          name="size"
-          id=""
-          className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
-        >
-          <option>Size</option>
-          <option value="">Size</option>
-        </select>
-        <select
-          name="color"
-          id=""
-          className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
-        >
-          <option>Color</option>
-          <option value="">Test</option>
-        </select>
-        <select
           name="tibbon"
           id=""
           className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
