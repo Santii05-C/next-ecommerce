@@ -27,7 +27,7 @@ const ProductList = async ({
     .limit(limit || PRODUCT_PER_PAGE);
 
   // .find();
-
+  //3:27
   if (searchParams?.sort) {
     const [sortType, sortBy] = searchParams.sort.split(" ");
 
