@@ -11,9 +11,10 @@ const Filter = () => {
     e: React.ChangeEvent<HTMLSelectElement | HTMLInputElement>
   ) => {
     const { name, value } = e.target;
-    console.log(name, value);
+    const params = new URLSearchParams(searchParams);
+    params.set(name, value);
+    replace(`${pathname}?${params.toString()}`);
   };
-  //3:19
 
   return (
     <div className="mt-12 flex justify-between">
