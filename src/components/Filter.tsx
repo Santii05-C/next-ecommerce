@@ -43,9 +43,9 @@ const Filter = () => {
           className="text-xs rounded-2xl pl-2 w-24 ring-1 ring-gray-400"
           onChange={handleFilterChange}
         />
+        {/* TODO: Filter Categories */}
         <select
           name="cat"
-          id=""
           className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
           onChange={handleFilterChange}
         >
@@ -58,7 +58,7 @@ const Filter = () => {
           id=""
           className="py-2 px-4 rounded-2xl text-xs font-medium bg-[#EBEDED]"
         >
-          <option>All Filter</option>
+          <option>All Filters</option>
         </select>
       </div>
       <div className="">
@@ -70,7 +70,7 @@ const Filter = () => {
         >
           <option>Sort By</option>
           <option value="asc price">Price (low to high)</option>
-          <option value="desc price">Price (high to low</option>
+          <option value="desc price">Price (high to low)</option>
           <option value="asc lastUpdated">Newest</option>
           <option value="desc lastUpdated">Oldest</option>
         </select>
