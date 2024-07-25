@@ -5,7 +5,7 @@ import Link from "next/link";
 import DOMPurify from "isomorphic-dompurify";
 import Pagination from "./Pagination";
 
-const PRODUCT_PER_PAGE = 20;
+const PRODUCT_PER_PAGE = 1;
 
 const ProductList = async ({
   categoryId,
@@ -90,7 +90,11 @@ const ProductList = async ({
           </button>
         </Link>
       ))}
-      <Pagination />
+      <Pagination
+        currentPage={res.currentPage || 0}
+        hasPrev={res.hasPrev()}
+        hasNext={res.hasNext()}
+      />
     </div>
   );
 };
