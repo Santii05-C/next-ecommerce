@@ -1,5 +1,8 @@
 "use client";
 
+import { usePathname, useSearchParams } from "next/navigation";
+import { useRouter } from "next/router";
+
 const Pagination = ({
   currentPage,
   hasPrev,
@@ -9,6 +12,11 @@ const Pagination = ({
   hasPrev: boolean;
   hasNext: boolean;
 }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const { replace } = useRouter();
+
+  const createPageUrl = (pageNumber: number) => {};
   return (
     <div className="mt-12 flex justify-between w-full">
       <button
