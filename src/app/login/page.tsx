@@ -88,12 +88,41 @@ const LoginPage = () => {
             />
           </div>
         ) : null}
-        <button className="bg-lama text-white p-2 rounded-md disabled:bg-pink-200 disabled:cursor-not-allowed">
-          {buttonTitle}
+        {mode === MODE.LOGIN && (
+          <div
+            className="text-sm underline cursor-pointer"
+            onClick={() => setMode(MODE.RESET_PASSWORD)}
+          >
+            Forgot Password?
+          </div>
+        )}
+        <button
+          className="bg-lama text-white p-2 rounded-md disabled:bg-pink-200 disabled:cursor-not-allowed"
+          disabled={isLoading}
+        >
+          {isLoading ? "Loading..." : buttonTitle}
         </button>
+        {error && <div className="text-red-600">{error}</div>}
+        {mode === MODE.LOGIN && (
+          <div className="" onClick={() => setMode(MODE.REGISTER)}>
+            {"Don't"} have an account
+          </div>
+        )}
+        {mode === MODE.REGISTER && (
+          <div className="" onClick={() => setMode(MODE.LOGIN)}>
+            Have an account?
+          </div>
+        )}
+        {mode === MODE.RESET_PASSWORD && (
+          <div className="" onClick={() => setMode(MODE.LOGIN)}>
+            Go back to Longin
+          </div>
+        )}
+        {message && <div className="text-green-600 text-sm">{message}</div>}
       </form>
     </div>
   );
 };
+//3:46
 
 export default LoginPage;
