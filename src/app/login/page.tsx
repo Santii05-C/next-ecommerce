@@ -44,7 +44,7 @@ const LoginPage = () => {
   return (
     <div className="h-[calc(100vh-80px)] px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 flex items-center justify-center">
       <form className="flex flex-col gap-8">
-        <h1 className="text-2sl font-semibold">{formTitle}</h1>
+        <h1 className="text-2xl font-semibold">{formTitle}</h1>
         {mode === MODE.REGISTER ? (
           <div className="flex flex-col gap-2">
             <label className="text-sm text-gray-700">Username</label>
@@ -104,17 +104,26 @@ const LoginPage = () => {
         </button>
         {error && <div className="text-red-600">{error}</div>}
         {mode === MODE.LOGIN && (
-          <div className="" onClick={() => setMode(MODE.REGISTER)}>
-            {"Don't"} have an account
+          <div
+            className="text-sm underline cursor-pointer"
+            onClick={() => setMode(MODE.REGISTER)}
+          >
+            {"Don't"} have an account?
           </div>
         )}
         {mode === MODE.REGISTER && (
-          <div className="" onClick={() => setMode(MODE.LOGIN)}>
+          <div
+            className="text-sm underline cursor-pointer"
+            onClick={() => setMode(MODE.LOGIN)}
+          >
             Have an account?
           </div>
         )}
         {mode === MODE.RESET_PASSWORD && (
-          <div className="" onClick={() => setMode(MODE.LOGIN)}>
+          <div
+            className="text-sm underline cursor-pointer"
+            onClick={() => setMode(MODE.LOGIN)}
+          >
             Go back to Longin
           </div>
         )}
