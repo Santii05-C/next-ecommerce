@@ -52,8 +52,8 @@ const LoginPage = () => {
       switch (mode) {
         case MODE.LOGIN:
           const res = await wixClient.auth.login({
-            email: email,
-            password: password,
+            email,
+            password,
           });
       }
     } finally {
