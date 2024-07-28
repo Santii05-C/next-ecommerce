@@ -13,12 +13,18 @@ const NavIcons = () => {
 
   const router = useRouter();
 
+  const wixClient = useWixClient();
+
+  const isLoggedIn = wixClient.auth.loggedIn();
+
   //TEMPORARY
-  const isLoggedIn = false;
+  // const isLoggedIn = false;
 
   const handleProfile = () => {
     if (!isLoggedIn) {
       router.push("/login");
+    } else {
+      setIsProfileOpen((prev) => !prev);
     }
     setIsProfileOpen((prev) => !prev);
   };

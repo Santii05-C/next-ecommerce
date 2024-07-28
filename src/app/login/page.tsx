@@ -14,6 +14,17 @@ enum MODE {
 }
 
 const LoginPage = () => {
+  const wixClient = useWixClient();
+  const router = useRouter();
+
+  const isLoggedIn = wixClient.auth.loggedIn();
+
+  console.log(isLoggedIn);
+
+  if (isLoggedIn) {
+    router.push("/");
+  }
+
   const [mode, setMode] = useState(MODE.LOGIN);
 
   const [username, setUserName] = useState("");
@@ -25,7 +36,6 @@ const LoginPage = () => {
   const [message, setMessage] = useState("");
 
   const pathName = usePathname();
-  const router = useRouter();
 
   const formTitle =
     mode === MODE.LOGIN
@@ -44,8 +54,6 @@ const LoginPage = () => {
       : mode === MODE.RESET_PASSWORD
       ? "Reset  "
       : "Verify";
-
-  const wixClient = useWixClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -97,6 +105,7 @@ const LoginPage = () => {
             expires: 2,
           });
           wixClient.auth.setTokens(tokens);
+          router.push("/");
 
           break;
 
