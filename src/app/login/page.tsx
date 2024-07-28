@@ -91,6 +91,7 @@ const LoginPage = () => {
         default:
           break;
       }
+
       console.log(response);
 
       switch (response?.loginState) {
@@ -99,6 +100,7 @@ const LoginPage = () => {
           const tokens = await wixClient.auth.getMemberTokensForDirectLogin(
             response.data.sessionToken!
           );
+
           console.log(tokens);
 
           Cookies.set("refreshToken", JSON.stringify(tokens.refreshToken), {
@@ -106,8 +108,16 @@ const LoginPage = () => {
           });
           wixClient.auth.setTokens(tokens);
           router.push("/");
-
           break;
+        case LoginState.FAILURE:
+          if (
+            response.errorCode === "invalidEmail" ||
+            response.errorCode === "invalidPassword"
+          ) {
+            setError("Invalid email or password!");
+          } else if (response.errorCode == "emailAlreadyExists") {
+            setError("Email already exists!");
+          }
 
         default:
           break;
