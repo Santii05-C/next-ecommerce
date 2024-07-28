@@ -1,6 +1,9 @@
 "use client";
 
 import { useWixClient } from "@/hooks/useWixClient";
+import { LoginState } from "@wix/sdk";
+import { usePathname, useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import { useState } from "react";
 
 enum MODE {
@@ -21,6 +24,9 @@ const LoginPage = () => {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
 
+  const pathName = usePathname();
+  const router = useRouter();
+
   const formTitle =
     mode === MODE.LOGIN
       ? "Log in"
@@ -39,7 +45,7 @@ const LoginPage = () => {
       ? "Reset  "
       : "Verify";
 
-  const wixClient = useWixClient;
+  const wixClient = useWixClient();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -47,15 +53,59 @@ const LoginPage = () => {
     setError("");
 
     try {
-    } catch (err) {
-      setError("Somenthing went wrong");
+      let response;
+
       switch (mode) {
         case MODE.LOGIN:
-          const res = await wixClient.auth.login({
+          response = await wixClient.auth.login({
             email,
             password,
           });
+          break;
+        case MODE.REGISTER:
+          response = await wixClient.auth.register({
+            email,
+            password,
+            profile: { nickname: username },
+          });
+          break;
+        case MODE.RESET_PASSWORD:
+          response = await wixClient.auth.sendPasswordResetEmail(
+            email,
+            pathName
+          );
+          break;
+        case MODE.LOGIN:
+          response = await wixClient.auth.processVerification({
+            verificationCode: emailCode,
+          });
+          break;
+        default:
+          break;
       }
+      console.log(response);
+
+      switch (response?.loginState) {
+        case LoginState.SUCCESS:
+          setMessage("Successful! You are being redirected.");
+          const tokens = await wixClient.auth.getMemberTokensForDirectLogin(
+            response.data.sessionToken!
+          );
+          console.log(tokens);
+
+          Cookies.set("refreshToken", JSON.stringify(tokens.refreshToken), {
+            expires: 2,
+          });
+          wixClient.auth.setTokens(tokens);
+
+          break;
+
+        default:
+          break;
+      }
+    } catch (err) {
+      console.log(err);
+      setError("Somenthing went wrong");
     } finally {
       setIsLoading(false);
     }
@@ -73,6 +123,7 @@ const LoginPage = () => {
               name="username"
               placeholder="john"
               className="ring-2 ring-gray-300 rounded-md p-4"
+              onChange={(e) => setUserName(e.target.value)}
             />
           </div>
         ) : null}
@@ -84,6 +135,7 @@ const LoginPage = () => {
               name="email"
               placeholder="john@gmail.com"
               className="ring-2 ring-gray-300 rounded-md p-4"
+              onChange={(e) => setEmail(e.target.value)}
             />
           </div>
         ) : (
@@ -94,6 +146,7 @@ const LoginPage = () => {
               name="emailCode"
               placeholder="Code"
               className="ring-2 ring-gray-300 rounded-md p-4"
+              onChange={(e) => setEmailCode(e.target.value)}
             />
           </div>
         )}
@@ -105,6 +158,7 @@ const LoginPage = () => {
               name="password"
               placeholder="Enter your password"
               className="ring-2 ring-gray-300 rounded-md p-4"
+              onChange={(e) => setPassword(e.target.value)}
             />
           </div>
         ) : null}
@@ -152,6 +206,5 @@ const LoginPage = () => {
     </div>
   );
 };
-//3:46
 
 export default LoginPage;
