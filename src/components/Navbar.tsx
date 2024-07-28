@@ -5,7 +5,7 @@ import SearchBar from "./SearchBar";
 import dynamic from "next/dynamic";
 // import NavIcons from "./Navicons";
 
-const NavIcons = dynamic(() => import("./Navicons"), { ssr: false });
+const NavIcons = dynamic(() => import("./NavIcons"), { ssr: false });
 
 const Navbar = () => {
   return (
